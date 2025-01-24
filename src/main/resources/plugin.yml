@@ -1,0 +1,4 @@
+name: CoreHub
+version: '1.0.0'
+main: jp.reitou_mugicha.corehub.CoreHub
+api-version: '1.21'
