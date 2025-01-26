@@ -1,6 +1,7 @@
 package jp.reitou_mugicha.corehub;
 
-import jp.reitou_mugicha.corehub.craft.Test;
+import jp.reitou_mugicha.corehub.compressor.CompressorListener;
+import jp.reitou_mugicha.corehub.craft.CustomRecipes;
 import jp.reitou_mugicha.corehub.extended_enderchest.EnderchestDataManager;
 import jp.reitou_mugicha.corehub.extended_enderchest.EnderchestUpgrade;
 import jp.reitou_mugicha.corehub.extended_enderchest.ExtendedEnderchest;
@@ -28,7 +29,9 @@ public final class CoreHub extends SimplePlugin
         event(new ExtendedEnderchest(enderchestDataManager));
         event(new EnderchestUpgrade(enderchestDataManager));
 
-        Test.register();
+        event(new CompressorListener());
+
+        CustomRecipes.registerAll();
         Bukkit.getLogger().info("CoreHub is Enabled.");
     }
 
