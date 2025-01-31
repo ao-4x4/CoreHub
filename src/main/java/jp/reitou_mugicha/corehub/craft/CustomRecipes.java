@@ -16,7 +16,7 @@ public class CustomRecipes
 
     public static void registerAll()
     {
-        add(new Test());
+        add(new PunchStick());
         add(new CompressorRecipe());
 
         for (ICustomRecipe recipe : recipes)
