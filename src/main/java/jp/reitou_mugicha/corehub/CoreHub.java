@@ -20,7 +20,19 @@ public final class CoreHub extends SimplePlugin
     {
         enderchestDataManager = new EnderchestDataManager(getDataFolder());
 
-        // EVENT REGISTER
+        registerEvents();
+        CustomRecipes.registerAll();
+
+        Bukkit.getLogger().info("CoreHub is Enabled.");
+    }
+
+    @Override
+    protected void onPluginLoad()
+    {
+    }
+
+    private void registerEvents()
+    {
         event(new FixAnvilSweepingEdge());
         event(new InstantChest());
         event(new BulkTrading());
@@ -28,11 +40,7 @@ public final class CoreHub extends SimplePlugin
         event(new UnlimitedAnvil());
         event(new ExtendedEnderchest(enderchestDataManager));
         event(new EnderchestUpgrade(enderchestDataManager));
-
         event(new CompressorListener());
-
-        CustomRecipes.registerAll();
-        Bukkit.getLogger().info("CoreHub is Enabled.");
     }
 
     private void event(Listener listener)
