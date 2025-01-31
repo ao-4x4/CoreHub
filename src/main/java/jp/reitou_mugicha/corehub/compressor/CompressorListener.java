@@ -15,6 +15,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.mineacademy.fo.menu.model.ItemCreator;
@@ -44,7 +45,7 @@ public class CompressorListener implements Listener
     @EventHandler
     public void onInteract(PlayerInteractEvent event)
     {
-        if (event.getClickedBlock() == null) return;
+        if (event.getClickedBlock() == null || event.getHand() != EquipmentSlot.HAND) return;
         Block block = event.getClickedBlock();
         NBTBlock nbtBlock = new NBTBlock(block);
         if (nbtBlock.getData().getBoolean(COMPRESSOR_TAG))
